@@ -1,15 +1,14 @@
 def main():
     import streamlit as st
-    from pymongo import MongoClient
+    import pandas as pd
 
-    st.title('Period Tracker')
+    st.title("Period Tracker")
 
-    @st.cache_resource
-    def init_connection():
-        uri = st.secrets["mongo"]["uri"]
-        return MongoClient(uri)
-    
-    client = init_connection()
+    st.header("Cycles History")
+    data = pd.read_parquet("./data/historical-data.parquet")
+
+    st.table(data)
+
 
 if __name__ == "__main__":
     main()

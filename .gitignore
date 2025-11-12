@@ -11,3 +11,7 @@ wheels/
 
 # MongoDB connection
 .streamlit/secrets.toml
+
+# User personal data
+data
+first-data.mongodb.js
